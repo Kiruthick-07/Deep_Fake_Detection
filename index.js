@@ -1,37 +1,34 @@
-const fileInput = document.getElementById('file-input');
+const photoInput = document.getElementById('photo-input');
 const submitBtn = document.getElementById('submit-btn');
-const previewImage = document.getElementById('preview-image');
-const uploadStatus = document.getElementById('upload-status');
+const photoContainer = document.querySelector('.photo-container');
 
-let uploadedPhoto = null;
-
-fileInput.addEventListener('change', (e) => {
+// Add event listener to input field when file is selected
+photoInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
-    if (!file.type.includes('image/')) {
-        alert('Only images are allowed!');
-        return;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const img = new Image();
+            img.src = reader.result;
+            img.onload = () => {
+                photoContainer.innerHTML = '';
+                photoContainer.appendChild(img);
+                console.log('Photo uploaded successfully');
+            };
+        };
+        reader.readAsDataURL(file);
     }
-    previewImage.src = URL.createObjectURL(file);
-    uploadedPhoto = file;
 });
 
-submitBtn.addEventListener('click', () => {
-    if (uploadedPhoto) {
-        const formData = new FormData();
-        formData.append('photo', uploadedPhoto);
-        fetch('/upload', {
-            method: 'POST',
-            body: formData
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            uploadStatus.textContent = data.message;
-        })
-        .catch((err) => {
-            console.error(err);
-            uploadStatus.textContent = 'Error uploading photo';
-        });
-    } else {
-        alert('Please select a file!');
+// Add event listener to submit button
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const file = photoInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            console.log('Photo uploaded successfully');
+        };
+        reader.readAsDataURL(file);
     }
 });

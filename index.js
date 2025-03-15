@@ -1,8 +1,6 @@
 const photoInput = document.getElementById('photo-input');
 const submitBtn = document.getElementById('submit-btn');
 const photoContainer = document.querySelector('.photo-container');
-
-// Add event listener to input field when file is selected
 photoInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -19,8 +17,6 @@ photoInput.addEventListener('change', (e) => {
         reader.readAsDataURL(file);
     }
 });
-
-// Add event listener to submit button
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const file = photoInput.files[0];

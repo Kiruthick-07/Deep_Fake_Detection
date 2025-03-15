@@ -180,12 +180,23 @@ h3{
     margin-left: 40px;
 }
 .gmailimg{
-    display: inline;
+    display: inline-block;
     margin-left: 40px;
     margin-top: 10px;
 }
 .gtxt{
-    margin-top:-10px;
+    top: 500px;
     margin-left: 10px;
-    display: inline;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.loc{
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.loc1{
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 30px;
 }

@@ -280,6 +280,9 @@ h3{
     font-size: 30px;
     cursor: pointer;
     color: #edf0f1;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
 
 .mobile-menu {
@@ -315,4 +318,11 @@ h3{
     .menu-btn {
         display: block;
     }
+}
+.ltxt{
+    color: rgb(154, 197, 254);
+    font-family: "Montserrat" , sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height:27px;
 }

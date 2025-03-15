@@ -36,3 +36,9 @@ function toggleMenu() {
         mobileMenu.style.display = 'block';
     }
 }
+function hideMenu() {
+    var mobileMenu = document.getElementById('mobileMenu');
+    var menuBtn = document.querySelector('.menu-btn');
+    mobileMenu.style.display = 'none';
+    menuBtn.style.display = 'none';
+}
